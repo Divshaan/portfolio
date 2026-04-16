@@ -1,0 +1,92 @@
+<!DOCTYPE html><html lang="en"><head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>DESIGNER_OS_V1.0 // HOME.EXE</title>
+<meta name="description" content="Divshaan Singh Brar — graphic designer & art director, Brampton ON.">
+<link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Silkscreen:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css"></head><body>
+
+<div id="boot">
+  <div>DESIGNER_OS V1.0 BIOS...</div>
+  <div>&gt; CHECKING MEMORY... <span style="color:var(--yl)">64K OK</span></div>
+  <div>&gt; LOADING CREATIVE.SYS...</div>
+  <div>&gt; MOUNTING PORTFOLIO.DIR...</div>
+  <div>&gt; SPAWNING PET...</div>
+  <div>&gt; INIT USER: <span style="color:var(--yl)">DSB</span></div>
+  <div class="bar"><div class="fl" id="fl"></div></div>
+  <div style="margin-top:14px">&gt; PRESS ANY KEY TO CONTINUE_</div>
+</div>
+
+<div class="hud">
+  <span class="dot"></span><span>DESIGNER_OS_V1.0</span>
+  <span class="sep">//</span><span>HOME.EXE</span>
+  <span class="sep">//</span><span style="color:var(--yl)">READY</span>
+  <span class="r" id="clk">00:00:00</span>
+</div>
+
+<nav class="side">
+  <h3>&gt; NAVIGATION</h3>
+  <a href="index.html" class="active">[01] HOME</a>
+  <a href="portfolio.html">[02] PORTFOLIO</a>
+  <a href="about.html">[03] ABOUT</a>
+  <a href="contact.html">[04] CONTACT</a>
+  <div class="stat">USER: DSB<br>STATUS: ONLINE<br>MEM: 64K OK<br>PET: ALIVE</div>
+</nav>
+
+<main class="main">
+  <section class="hero">
+    <div>
+      <div class="mono" id="mono">DSB</div>
+      <div class="name">DIVSHAAN SINGH BRAR</div>
+      <p class="tag">&gt; <b>Graphic designer</b> &amp; aspiring art director based in Brampton, ON.<br>Building brands, campaigns &amp; <b>web experiences</b> with pixel-perfect obsession.<br>&gt; <span class="type" id="tp"></span></p>
+      <div class="cta">
+        <a href="portfolio.html" class="btn yl">► VIEW WORK</a>
+        <a href="contact.html" class="btn">CONTACT ME</a>
+      </div>
+    </div>
+    <div class="term">
+      <div class="th"><span>TERMINAL.EXE</span><span>●●●</span></div>
+      <div class="ln"><span class="k">&gt; whoami</span></div>
+      <div class="ln"><span class="v">divshaan_singh_brar</span></div>
+      <div class="ln"><span class="k">&gt; status</span></div>
+      <div class="ln"><span class="v" style="color:var(--yl)">● OPEN TO WORK</span></div>
+      <div class="ln"><span class="k">&gt; secrets</span></div>
+      <div class="ln"><span class="v" style="color:var(--dim);font-size:8px">try: sudo hire me / matrix / theme pink / coffee / ls -la</span></div>
+      <div class="ln"><span class="k">&gt; </span><input id="cmd" placeholder="type a command" aria-label="Terminal"></div>
+      <div class="ln" id="out" style="color:var(--cy);min-height:16px"></div>
+    </div>
+  </section>
+
+  <section class="stats">
+    <div class="stat"><span class="n" data-c="5">0</span><span class="l">PROJECTS</span></div>
+    <div class="stat"><span class="n" data-c="3">0</span><span class="l">YEARS</span></div>
+    <div class="stat"><span class="n" data-c="10">0</span><span class="l">CLIENTS</span></div>
+    <div class="stat"><span class="n" data-c="300">0</span><span class="l">% GROWTH</span></div>
+  </section>
+
+  <div class="foot">
+    <a href="contact.html">◄ CONTACT</a>
+    <a href="portfolio.html">NEXT: PORTFOLIO ►</a>
+  </div>
+</main>
+
+<div id="pet" role="button" aria-label="Pet sprite">
+  <span class="speech"></span>
+  <svg viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg" shape-rendering="crispEdges">
+    <rect width="16" height="16" fill="#12121e"/>
+    <rect x="4" y="3" width="8" height="8" fill="#8aceff"/>
+    <rect x="3" y="4" width="1" height="6" fill="#8aceff"/>
+    <rect x="12" y="4" width="1" height="6" fill="#8aceff"/>
+    <rect x="5" y="2" width="2" height="2" fill="#8aceff"/>
+    <rect x="9" y="2" width="2" height="2" fill="#8aceff"/>
+    <rect x="6" y="6" width="1" height="1" fill="#12121e"/>
+    <rect x="9" y="6" width="1" height="1" fill="#12121e"/>
+    <rect x="6" y="8" width="4" height="1" fill="#ffdd74"/>
+    <rect x="4" y="11" width="2" height="2" fill="#8aceff"/>
+    <rect x="10" y="11" width="2" height="2" fill="#8aceff"/>
+    <rect x="2" y="6" width="1" height="2" fill="#ff5577"/>
+    <rect x="13" y="6" width="1" height="2" fill="#ff5577"/>
+  </svg>
+</div>
+
+<script src="script.js"></script>
+</body></html>

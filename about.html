@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta charset="UTF-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>DESIGNER_OS_V1.0 // ABOUT.EXE</title>
+<link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Silkscreen:wght@400;700&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#12121e;--cy:#8aceff;--yl:#ffdd74;--ink:#e8e8ff;--dim:#4a4a6a;--panel:#1a1a2e;--hot:#ff5577;--grn:#7fff9f;}
+*{margin:0;padding:0;box-sizing:border-box;image-rendering:pixelated}
+html,body{background:var(--bg);color:var(--ink);font-family:'Silkscreen',monospace;min-height:100vh;overflow-x:hidden}
+body::before{content:"";position:fixed;inset:0;background:repeating-linear-gradient(0deg,rgba(0,0,0,.25) 0 2px,transparent 2px 4px);pointer-events:none;z-index:9999;mix-blend-mode:multiply}
+body::after{content:"";position:fixed;inset:0;background:radial-gradient(ellipse at center,transparent 55%,rgba(0,0,0,.7));pointer-events:none;z-index:9998}
+.hud{position:fixed;top:0;left:0;right:0;height:36px;background:var(--panel);border-bottom:2px solid var(--cy);display:flex;align-items:center;padding:0 16px;font-family:'Press Start 2P';font-size:9px;z-index:100;gap:20px}
+.hud .dot{width:8px;height:8px;background:var(--yl);box-shadow:0 0 8px var(--yl);animation:bk 1.2s infinite}
+.hud .sep{color:var(--dim)}.hud .r{margin-left:auto;color:var(--cy)}
+@keyframes bk{50%{opacity:.3}}
+.side{position:fixed;top:36px;left:0;width:180px;bottom:0;background:var(--panel);border-right:2px solid var(--cy);padding:24px 14px;font-family:'Press Start 2P';font-size:8px;z-index:50}
+.side h3{color:var(--yl);font-size:8px;margin-bottom:14px}
+.side a{display:block;color:var(--ink);text-decoration:none;padding:9px 10px;margin-bottom:4px;border-left:3px solid transparent;transition:.15s}
+.side a:hover{background:#222238;border-left-color:var(--cy);color:var(--cy);transform:translateX(3px)}
+.side a.active{background:#222238;border-left-color:var(--yl);color:var(--yl)}
+.side .stat{margin-top:28px;padding-top:14px;border-top:1px dashed var(--dim);color:var(--dim);line-height:1.8}
+.main{margin:36px 0 0 180px;padding:40px 42px 80px}
+.title{font-family:'Press Start 2P';font-size:26px;color:var(--cy);text-shadow:3px 3px 0 var(--hot),6px 6px 0 rgba(0,0,0,.6);margin-bottom:8px;letter-spacing:2px}
+.sub{color:var(--dim);font-size:14px;margin-bottom:32px}.sub b{color:var(--yl)}
+.grid{display:grid;grid-template-columns:1.2fr 1fr;gap:26px;margin-bottom:30px}
+.card{background:var(--panel);border:2px solid var(--cy);padding:22px 24px;clip-path:polygon(0 8px,8px 0,100% 0,100% calc(100% - 8px),calc(100% - 8px) 100%,0 100%);transition:.2s}
+.card:hover{border-color:var(--yl);transform:translateY(-3px);box-shadow:6px 6px 0 rgba(138,206,255,.2)}
+.card h2{font-family:'Press Start 2P';font-size:11px;color:var(--yl);margin-bottom:16px;padding-bottom:10px;border-bottom:1px dashed var(--dim);display:flex;justify-content:space-between}
+.card h2 span{color:var(--dim);font-size:8px}
+.card p{font-size:14px;line-height:1.7;color:var(--ink);margin-bottom:12px}
+.card p b{color:var(--cy)}
+/* specs table */
+.spec{display:grid;grid-template-columns:90px 1fr;gap:6px 14px;font-size:12px}
+.spec .k{color:var(--dim);font-family:'Press Start 2P';font-size:7px;padding-top:3px}
+.spec .v{color:var(--ink)}
+.spec .v b{color:var(--grn)}
+/* skill bars */
+.skill{margin-bottom:14px}
+.skill .lb{display:flex;justify-content:space-between;font-family:'Press Start 2P';font-size:8px;margin-bottom:6px}
+.skill .lb .n{color:var(--ink)}.skill .lb .p{color:var(--yl)}
+.skill .bar{height:12px;background:#0a0a14;border:1px solid var(--cy);padding:1px}
+.skill .fl{height:100%;width:0;background:repeating-linear-gradient(90deg,var(--cy) 0 6px,var(--hot) 6px 12px);transition:width 1.2s ease-out}
+/* timeline */
+.tl{position:relative;padding-left:28px;margin-top:8px}
+.tl::before{content:"";position:absolute;left:6px;top:6px;bottom:6px;width:2px;background:var(--dim)}
+.ev{position:relative;margin-bottom:18px;opacity:0;transform:translateX(-10px);transition:.5s}
+.ev.on{opacity:1;transform:translateX(0)}
+.ev::before{content:"";position:absolute;left:-25px;top:4px;width:10px;height:10px;background:var(--yl);border:2px solid var(--bg);box-shadow:0 0 0 2px var(--yl)}
+.ev .y{font-family:'Press Start 2P';font-size:8px;color:var(--cy);margin-bottom:4px}
+.ev .t{font-size:13px;color:var(--ink);line-height:1.5}
+.ev .t b{color:var(--yl)}
+/* tools grid */
+.tools{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-top:6px}
+.tool{background:#0a0a14;border:1px solid var(--cy);padding:12px 8px;text-align:center;font-family:'Press Start 2P';font-size:7px;color:var(--cy);transition:.15s;cursor:default}
+.tool:hover{background:var(--cy);color:var(--bg);transform:translate(-2px,-2px);box-shadow:3px 3px 0 var(--hot)}
+/* easter */
+.konami{position:fixed;bottom:20px;right:20px;font-family:'Press Start 2P';font-size:8px;color:var(--dim);opacity:.5}
+.foot{margin-top:40px;display:flex;justify-content:space-between;padding:20px;border-top:2px dashed var(--dim);font-family:'Press Start 2P';font-size:9px}
+.foot a{color:var(--cy);text-decoration:none;padding:10px 16px;border:2px solid var(--cy);transition:.15s}
+.foot a:hover{background:var(--cy);color:var(--bg);transform:translate(-2px,-2px);box-shadow:4px 4px 0 var(--yl)}
+@media(max-width:900px){.side{display:none}.main{margin-left:0;padding:24px}.grid{grid-template-columns:1fr}.tools{grid-template-columns:repeat(2,1fr)}}
+</style></head>
+<body>
+
+<div class="hud">
+  <span class="dot"></span><span>DESIGNER_OS_V1.0</span>
+  <span class="sep">//</span><span>ABOUT.EXE</span>
+  <span class="sep">//</span><span style="color:var(--yl)">SYS INFO LOADED</span>
+  <span class="r" id="clk">00:00:00</span>
+</div>
+
+<nav class="side">
+  <h3>&gt; NAVIGATION</h3>
+  <a href="index.html">[01] HOME</a>
+  <a href="portfolio.html">[02] PORTFOLIO</a>
+  <a href="about.html" class="active">[03] ABOUT</a>
+  <a href="contact.html">[04] CONTACT</a>
+  <div class="stat">USER: DSB<br>STATUS: ONLINE<br>MEM: 64K OK<br>GPU: PIXEL_V2</div>
+</nav>
+
+<main class="main">
+  <h1 class="title">ABOUT.EXE</h1>
+  <p class="sub">&gt; SYSTEM_INFO.DAT &nbsp;•&nbsp; <b>USER PROFILE</b> &nbsp;•&nbsp; LAST UPDATED 2026</p>
+
+  <div class="grid">
+    <div class="card">
+      <h2>USER_BIO.TXT <span>[README]</span></h2>
+      <p>&gt; Hi, I'm <b>Divshaan Singh Brar</b> — a graphic designer and aspiring art director currently finishing my Advance Diploma at George Brown Polytechnic (class of 2026).</p>
+      <p>&gt; I build <b>brand systems</b>, <b>campaigns</b>, and <b>web experiences</b> for people who care about the details. I got into design because of album covers, video game UIs, and posters I couldn't stop staring at — and I've been chasing that feeling ever since.</p>
+      <p>&gt; When I'm not designing, I'm probably writing poetry, playing Hogwarts Legacy, reading about Vedic astrology, or coding stuff like this site from scratch.</p>
+    </div>
+    <div class="card">
+      <h2>SYS_SPECS.CFG <span>[HW]</span></h2>
+      <div class="spec">
+        <div class="k">NAME</div><div class="v">Divshaan Singh Brar</div>
+        <div class="k">LOCATION</div><div class="v">Brampton, ON <b>● CA</b></div>
+        <div class="k">ROLE</div><div class="v">Graphic Designer / Art Director</div>
+        <div class="k">EDU</div><div class="v">George Brown Polytechnic</div>
+        <div class="k">STATUS</div><div class="v"><b>● OPEN TO WORK</b></div>
+        <div class="k">PERMIT</div><div class="v">PGWP — no sponsorship</div>
+        <div class="k">MEMBER</div><div class="v">Student RGD</div>
+        <div class="k">UPTIME</div><div class="v" id="up">--</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="grid">
+    <div class="card">
+      <h2>SKILLS.DLL <span>[LVL]</span></h2>
+      <div class="skill"><div class="lb"><span class="n">BRANDING</span><span class="p">95%</span></div><div class="bar"><div class="fl" data-w="95"></div></div></div>
+      <div class="skill"><div class="lb"><span class="n">ART DIRECTION</span><span class="p">88%</span></div><div class="bar"><div class="fl" data-w="88"></div></div></div>
+      <div class="skill"><div class="lb"><span class="n">TYPOGRAPHY</span><span class="p">92%</span></div><div class="bar"><div class="fl" data-w="92"></div></div></div>
+      <div class="skill"><div class="lb"><span class="n">CAMPAIGN DESIGN</span><span class="p">90%</span></div><div class="bar"><div class="fl" data-w="90"></div></div></div>
+      <div class="skill"><div class="lb"><span class="n">WEB / HTML-CSS-JS</span><span class="p">85%</span></div><div class="bar"><div class="fl" data-w="85"></div></div></div>
+      <div class="skill"><div class="lb"><span class="n">COPYWRITING</span><span class="p">80%</span></div><div class="bar"><div class="fl" data-w="80"></div></div></div>
+    </div>
+
+    <div class="card">
+      <h2>TOOLS.BIN <span>[KIT]</span></h2>
+      <div class="tools">
+        <div class="tool">PS</div><div class="tool">AI</div><div class="tool">ID</div><div class="tool">FIGMA</div>
+        <div class="tool">AE</div><div class="tool">PR</div><div class="tool">HTML</div><div class="tool">CSS</div>
+        <div class="tool">JS</div><div class="tool">BLENDER</div><div class="tool">GIT</div><div class="tool">VSCODE</div>
+      </div>
+      <h2 style="margin-top:22px">STACK.INI <span>[LANG]</span></h2>
+      <p style="font-size:12px;color:var(--dim);line-height:1.7">&gt; English, Hindi, Punjabi<br>&gt; Fluent in Press Start 2P ✦</p>
+    </div>
+  </div>
+
+  <div class="card">
+    <h2>TIMELINE.LOG <span>[HIST]</span></h2>
+    <div class="tl">
+      <div class="ev"><div class="y">&gt; 2026</div><div class="t">Graduating <b>George Brown Polytechnic</b> — Advance Diploma in Graphic Design. Thesis: Steam OWNED campaign.</div></div>
+      <div class="ev"><div class="y">&gt; 2025</div><div class="t">Freelance work with <b>Schulich ExecEd</b>. Rebrand for <b>Different Spokes Brampton</b> — 300% engagement lift.</div></div>
+      <div class="ev"><div class="y">&gt; 2024</div><div class="t">Student Lab Technician @ George Brown. Social media marketing internship @ <b>US Webtech Solution</b>.</div></div>
+      <div class="ev"><div class="y">&gt; 2023</div><div class="t">Started the Advance Diploma. First campaigns, first typefaces I actually liked.</div></div>
+      <div class="ev"><div class="y">&gt; 2003</div><div class="t">Booted up in <b>Sri Ganganagar, India</b>. System has been running ever since.</div></div>
+    </div>
+  </div>
+
+  <div class="foot">
+    <a href="portfolio.html">◄ PREV: PORTFOLIO</a>
+    <a href="index.html">HOME ►</a>
+  </div>
+</main>
+
+<div class="konami" id="kn">&gt; TRY: ↑↑↓↓←→←→BA</div>
+
+<script>
+let A;function sfx(f=440,d=.06){try{A=A||new(window.AudioContext||webkitAudioContext);const o=A.createOscillator(),g=A.createGain();o.type='square';o.frequency.value=f;g.gain.value=.04;o.connect(g);g.connect(A.destination);o.start();g.gain.exponentialRampToValueAtTime(.0001,A.currentTime+d);o.stop(A.currentTime+d)}catch(e){}}
+
+setInterval(()=>clk.textContent=new Date().toTimeString().slice(0,8),1000);
+
+// Uptime = years since 2003
+const bd=new Date(2003,9,9,20,55);
+setInterval(()=>{const y=((Date.now()-bd)/31557600000).toFixed(4);up.innerHTML=y+' <b>YRS</b>'},100);
+
+// Skill bar reveal
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.style.width=e.target.dataset.w+'%';sfx(500+Math.random()*300,.04);io.unobserve(e.target)}}),{threshold:.3});
+document.querySelectorAll('.fl').forEach(f=>io.observe(f));
+
+// Timeline reveal
+const io2=new IntersectionObserver(es=>es.forEach((e,i)=>{if(e.isIntersecting){setTimeout(()=>{e.target.classList.add('on');sfx(700,.04)},i*150);io2.unobserve(e.target)}}),{threshold:.2});
+document.querySelectorAll('.ev').forEach(e=>io2.observe(e));
+
+// Tool hover
+document.querySelectorAll('.tool').forEach(t=>t.addEventListener('mouseenter',()=>sfx(800,.03)));
+document.querySelectorAll('.side a, .foot a').forEach(a=>a.addEventListener('mouseenter',()=>sfx(680,.03)));
+
+// Konami code
+const k=['ArrowUp','ArrowUp','ArrowDown','ArrowDown','ArrowLeft','ArrowRight','ArrowLeft','ArrowRight','b','a'];let ki=0;
+addEventListener('keydown',e=>{if(e.key.toLowerCase()===k[ki].toLowerCase()){ki++;sfx(600+ki*60,.05);if(ki===k.length){ki=0;document.body.style.animation='spin 1s';setTimeout(()=>{alert('🎮 CHEAT UNLOCKED: You just hired me.');document.body.style.animation=''},1100);for(let i=0;i<8;i++)setTimeout(()=>sfx(400+i*80,.08),i*80)}}else ki=0});
+const st=document.createElement('style');st.textContent='@keyframes spin{to{transform:rotate(360deg) scale(.95)}}';document.head.appendChild(st);
+</script></body></html>
