@@ -1,71 +1,22 @@
 <!DOCTYPE html>
 <html lang="en"><head>
-<meta charset="UTF-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,shrink-to-fit=no">
 <title>DESIGNER_OS_V1.0 // CONTACT.EXE</title>
+<meta name="description" content="Contact Divshaan Singh Brar — graphic designer & art director. Brampton, ON. Open to work.">
+<link rel="icon" type="image/svg+xml" href="assets/logo.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Silkscreen:wght@400;700&display=swap" rel="stylesheet">
-<style>
-:root{--bg:#12121e;--cy:#8aceff;--yl:#ffdd74;--ink:#e8e8ff;--dim:#4a4a6a;--panel:#1a1a2e;--hot:#ff5577;--grn:#7fff9f;}
-*{margin:0;padding:0;box-sizing:border-box;image-rendering:pixelated}
-html,body{background:var(--bg);color:var(--ink);font-family:'Silkscreen',monospace;min-height:100vh;overflow-x:hidden}
-body::before{content:"";position:fixed;inset:0;background:repeating-linear-gradient(0deg,rgba(0,0,0,.25) 0 2px,transparent 2px 4px);pointer-events:none;z-index:9999;mix-blend-mode:multiply}
-body::after{content:"";position:fixed;inset:0;background:radial-gradient(ellipse at center,transparent 55%,rgba(0,0,0,.7));pointer-events:none;z-index:9998}
-.hud{position:fixed;top:0;left:0;right:0;height:36px;background:var(--panel);border-bottom:2px solid var(--cy);display:flex;align-items:center;padding:0 16px;font-family:'Press Start 2P';font-size:9px;z-index:100;gap:20px}
-.hud .dot{width:8px;height:8px;background:var(--yl);box-shadow:0 0 8px var(--yl);animation:bk 1.2s infinite}
-.hud .sep{color:var(--dim)}.hud .r{margin-left:auto;color:var(--cy)}
-@keyframes bk{50%{opacity:.3}}
-.side{position:fixed;top:36px;left:0;width:180px;bottom:0;background:var(--panel);border-right:2px solid var(--cy);padding:24px 14px;font-family:'Press Start 2P';font-size:8px;z-index:50}
-.side h3{color:var(--yl);margin-bottom:14px}
-.side a{display:block;color:var(--ink);text-decoration:none;padding:9px 10px;margin-bottom:4px;border-left:3px solid transparent;transition:.15s}
-.side a:hover{background:#222238;border-left-color:var(--cy);color:var(--cy);transform:translateX(3px)}
-.side a.active{background:#222238;border-left-color:var(--yl);color:var(--yl)}
-.side .stat{margin-top:28px;padding-top:14px;border-top:1px dashed var(--dim);color:var(--dim);line-height:1.8}
-.main{margin:36px 0 0 180px;padding:40px 42px 80px}
-.title{font-family:'Press Start 2P';font-size:26px;color:var(--cy);text-shadow:3px 3px 0 var(--hot),6px 6px 0 rgba(0,0,0,.6);margin-bottom:8px;letter-spacing:2px}
-.sub{color:var(--dim);font-size:14px;margin-bottom:32px}.sub b{color:var(--yl)}
-.grid{display:grid;grid-template-columns:1.3fr 1fr;gap:26px}
-.card{background:var(--panel);border:2px solid var(--cy);padding:24px;clip-path:polygon(0 8px,8px 0,100% 0,100% calc(100% - 8px),calc(100% - 8px) 100%,0 100%);transition:.2s}
-.card:hover{border-color:var(--yl)}
-.card h2{font-family:'Press Start 2P';font-size:11px;color:var(--yl);margin-bottom:18px;padding-bottom:10px;border-bottom:1px dashed var(--dim);display:flex;justify-content:space-between}
-.card h2 span{color:var(--dim);font-size:8px}
-/* FORM */
-.fld{margin-bottom:16px}
-.fld label{display:block;font-family:'Press Start 2P';font-size:8px;color:var(--cy);margin-bottom:6px}
-.fld label b{color:var(--hot)}
-.fld input,.fld select,.fld textarea{width:100%;background:#0a0a14;border:2px solid var(--dim);color:var(--ink);font-family:'Silkscreen',monospace;font-size:14px;padding:11px 12px;outline:none;transition:.15s}
-.fld input:focus,.fld select:focus,.fld textarea:focus{border-color:var(--yl);box-shadow:0 0 0 2px rgba(255,221,116,.2)}
-.fld textarea{resize:vertical;min-height:120px;line-height:1.5}
-.fld .ch{display:block;font-family:'Press Start 2P';font-size:7px;color:var(--dim);margin-top:4px;text-align:right}
-.send{background:var(--yl);border:2px solid var(--yl);color:var(--bg);font-family:'Press Start 2P';font-size:10px;padding:16px 24px;cursor:pointer;width:100%;transition:.15s;letter-spacing:2px;margin-top:6px}
-.send:hover{background:var(--cy);border-color:var(--cy);transform:translate(-3px,-3px);box-shadow:5px 5px 0 var(--hot)}
-.send:disabled{opacity:.5;cursor:wait}
-/* INFO PANEL */
-.info{font-size:13px;color:var(--ink);line-height:1.9}
-.info .ln{padding:12px 0;border-bottom:1px dashed var(--dim);display:flex;justify-content:space-between;align-items:center;gap:10px}
-.info .ln:last-child{border:0}
-.info .k{font-family:'Press Start 2P';font-size:7px;color:var(--cy)}
-.info .v{color:var(--yl);cursor:pointer;transition:.15s;text-align:right;word-break:break-all}
-.info .v:hover{color:var(--hot);text-shadow:0 0 8px var(--hot)}
-.info .v.cp::after{content:" [COPY]";font-family:'Press Start 2P';font-size:6px;color:var(--dim)}
-.info .v.cp.ok::after{content:" [✓ COPIED]";color:var(--grn)}
-/* STATUS */
-.ping{margin-top:18px;padding:12px;background:#0a0a14;border:1px solid var(--grn);font-family:'Press Start 2P';font-size:8px;color:var(--grn);line-height:2}
-.ping .b{display:inline-block;width:6px;height:6px;background:var(--grn);box-shadow:0 0 6px var(--grn);animation:bk 1s infinite;margin-right:6px}
-/* TRANSMIT OVERLAY */
-.tx{position:fixed;inset:0;background:rgba(0,0,0,.95);z-index:500;display:none;align-items:center;justify-content:center;padding:30px;font-family:'Press Start 2P';color:var(--grn);font-size:10px;line-height:2.2}
-.tx.on{display:flex}
-.tx .box{max-width:520px;text-align:left}
-.tx .bar{margin-top:16px;border:2px solid var(--grn);height:16px;padding:2px}
-.tx .fl{height:100%;width:0;background:var(--grn);transition:width .05s}
-.tx .done{color:var(--yl);margin-top:16px;display:none}
-.tx.done .done{display:block}
-.foot{margin-top:40px;display:flex;justify-content:space-between;padding:20px;border-top:2px dashed var(--dim);font-family:'Press Start 2P';font-size:9px}
-.foot a{color:var(--cy);text-decoration:none;padding:10px 16px;border:2px solid var(--cy);transition:.15s}
-.foot a:hover{background:var(--cy);color:var(--bg);transform:translate(-2px,-2px);box-shadow:4px 4px 0 var(--yl)}
-@media(max-width:900px){.side{display:none}.main{margin-left:0;padding:24px}.grid{grid-template-columns:1fr}}
-</style></head>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+<link rel="stylesheet" href="style.css">
+</head>
 <body>
 
 <div class="hud">
+  <button class="burger" type="button" data-bs-toggle="offcanvas" data-bs-target="#navDrawer" aria-controls="navDrawer" aria-label="Open navigation">≡</button>
+  <img src="assets/logo.svg" alt="" class="logo" aria-hidden="true">
   <span class="dot"></span><span>DESIGNER_OS_V1.0</span>
   <span class="sep">//</span><span>CONTACT.EXE</span>
   <span class="sep">//</span><span style="color:var(--yl)">TX CHANNEL OPEN</span>
@@ -78,8 +29,23 @@ body::after{content:"";position:fixed;inset:0;background:radial-gradient(ellipse
   <a href="portfolio.html">[02] PORTFOLIO</a>
   <a href="about.html">[03] ABOUT</a>
   <a href="contact.html" class="active">[04] CONTACT</a>
+  <a href="sitemap.html" style="color:var(--dim);font-size:7px">[MAP] SITEMAP</a>
   <div class="stat">USER: DSB<br>STATUS: ONLINE<br>SIGNAL: ●●●●●<br>PING: 12ms</div>
 </nav>
+
+<div class="offcanvas offcanvas-start" tabindex="-1" id="navDrawer" aria-labelledby="navDrawerLabel">
+  <div class="offcanvas-header">
+    <h5 class="offcanvas-title" id="navDrawerLabel">&gt; NAVIGATION</h5>
+    <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+  </div>
+  <div class="offcanvas-body">
+    <a href="index.html">[01] HOME</a>
+    <a href="portfolio.html">[02] PORTFOLIO</a>
+    <a href="about.html">[03] ABOUT</a>
+    <a href="contact.html" class="active">[04] CONTACT</a>
+    <a href="sitemap.html" style="color:var(--dim);font-size:7px">[MAP] SITEMAP</a>
+  </div>
+</div>
 
 <main class="main">
   <h1 class="title">CONTACT.EXE</h1>
@@ -88,18 +54,18 @@ body::after{content:"";position:fixed;inset:0;background:radial-gradient(ellipse
   <div class="grid">
     <div class="card">
       <h2>TRANSMIT_MSG.FRM <span>[NEW]</span></h2>
-      <form id="frm">
+      <form id="frm" novalidate>
         <div class="fld">
-          <label>&gt; SENDER_NAME <b>*</b></label>
-          <input type="text" id="nm" required placeholder="your full name">
+          <label for="nm">&gt; SENDER_NAME <b>*</b></label>
+          <input type="text" id="nm" class="form-control" required placeholder="your full name" autocomplete="name">
         </div>
         <div class="fld">
-          <label>&gt; RETURN_ADDR <b>*</b></label>
-          <input type="email" id="em" required placeholder="you@domain.com">
+          <label for="em">&gt; RETURN_ADDR <b>*</b></label>
+          <input type="email" id="em" class="form-control" required placeholder="you@domain.com" autocomplete="email">
         </div>
         <div class="fld">
-          <label>&gt; MSG_TYPE</label>
-          <select id="tp">
+          <label for="tp">&gt; MSG_TYPE</label>
+          <select id="tp" class="form-select">
             <option>&gt; FULL-TIME ROLE</option>
             <option>&gt; FREELANCE PROJECT</option>
             <option>&gt; COLLABORATION</option>
@@ -108,23 +74,23 @@ body::after{content:"";position:fixed;inset:0;background:radial-gradient(ellipse
           </select>
         </div>
         <div class="fld">
-          <label>&gt; PAYLOAD <b>*</b></label>
-          <textarea id="ms" required placeholder="type your message here..." maxlength="1000"></textarea>
+          <label for="ms">&gt; PAYLOAD <b>*</b></label>
+          <textarea id="ms" class="form-control" required placeholder="type your message here..." maxlength="1000"></textarea>
           <span class="ch"><span id="cc">0</span> / 1000 BYTES</span>
         </div>
-        <button type="submit" class="send">► TRANSMIT MESSAGE</button>
+        <button type="submit" class="send btn">► TRANSMIT MESSAGE</button>
       </form>
     </div>
 
     <div class="card">
       <h2>CHANNELS.CFG <span>[DIRECT]</span></h2>
       <div class="info">
-        <div class="ln"><span class="k">EMAIL</span><span class="v cp" data-cp="singhbrardivshaan@gmail.com">singhbrardivshaan@gmail.com</span></div>
-        <div class="ln"><span class="k">PHONE</span><span class="v cp" data-cp="4372975009">437-297-5009</span></div>
-        <div class="ln"><span class="k">LINKEDIN</span><a class="v" href="https://www.linkedin.com/in/divshaan-singh-brar-038b97251" target="_blank">@divshaan</a></div>
-        <div class="ln"><span class="k">PORTFOLIO</span><a class="v" href="https://divshaan.github.io" target="_blank">divshaan.github.io</a></div>
-        <div class="ln"><span class="k">LOCATION</span><span class="v">Brampton, ON</span></div>
-        <div class="ln"><span class="k">TIMEZONE</span><span class="v" id="tz">EST (UTC-5)</span></div>
+        <div class="ln"><span class="k"><i class="bi bi-envelope-fill"></i> EMAIL</span><span class="v cp" data-cp="singhbrardivshaan@gmail.com">singhbrardivshaan@gmail.com</span></div>
+        <div class="ln"><span class="k"><i class="bi bi-telephone-fill"></i> PHONE</span><span class="v cp" data-cp="4372975009">437-297-5009</span></div>
+        <div class="ln"><span class="k"><i class="bi bi-linkedin"></i> LINKEDIN</span><a class="v" href="https://www.linkedin.com/in/divshaan-singh-brar-038b97251" target="_blank" rel="noopener">@divshaan</a></div>
+        <div class="ln"><span class="k"><i class="bi bi-globe2"></i> PORTFOLIO</span><a class="v" href="https://divshaan.github.io" target="_blank" rel="noopener">divshaan.github.io</a></div>
+        <div class="ln"><span class="k"><i class="bi bi-geo-alt-fill"></i> LOCATION</span><span class="v">Brampton, ON</span></div>
+        <div class="ln"><span class="k"><i class="bi bi-clock-fill"></i> TIMEZONE</span><span class="v" id="tz">EST (UTC-5)</span></div>
       </div>
       <div class="ping">
         <div><span class="b"></span>PINGING server.dsb...</div>
@@ -135,8 +101,8 @@ body::after{content:"";position:fixed;inset:0;background:radial-gradient(ellipse
   </div>
 
   <div class="foot">
-    <a href="about.html">◄ PREV: ABOUT</a>
-    <a href="index.html">HOME ►</a>
+    <a href="about.html"><i class="bi bi-chevron-double-left"></i> PREV: ABOUT</a>
+    <a href="index.html">HOME <i class="bi bi-chevron-double-right"></i></a>
   </div>
 </main>
 
@@ -146,52 +112,9 @@ body::after{content:"";position:fixed;inset:0;background:radial-gradient(ellipse
   <div>&gt; ROUTING TO server.dsb...</div>
   <div>&gt; TRANSMITTING:</div>
   <div class="bar"><div class="fl" id="txfl"></div></div>
-  <div class="done">&gt; <span style="color:var(--grn)">● MESSAGE RECEIVED</span><br>&gt; I'll reply within 24h.<br><br>&gt; <span style="color:var(--cy);cursor:pointer" onclick="tx.classList.remove('on','done');txfl.style.width='0'">[CLOSE]</span></div>
+  <div class="done">&gt; <span style="color:var(--grn)">● MESSAGE RECEIVED</span><br>&gt; I'll reply within 24h.<br><br>&gt; <span style="color:var(--cy);cursor:pointer" data-tx-close>[CLOSE]</span></div>
 </div></div>
 
-<script>
-let A;function sfx(f=440,d=.06){try{A=A||new(window.AudioContext||webkitAudioContext);const o=A.createOscillator(),g=A.createGain();o.type='square';o.frequency.value=f;g.gain.value=.04;o.connect(g);g.connect(A.destination);o.start();g.gain.exponentialRampToValueAtTime(.0001,A.currentTime+d);o.stop(A.currentTime+d)}catch(e){}}
-
-setInterval(()=>clk.textContent=new Date().toTimeString().slice(0,8),1000);
-
-// char counter
-ms.addEventListener('input',()=>{cc.textContent=ms.value.length;sfx(900,.02)});
-[nm,em].forEach(el=>el.addEventListener('input',()=>sfx(850,.02)));
-
-// copy to clipboard
-document.querySelectorAll('.cp').forEach(el=>{
-  el.addEventListener('click',()=>{
-    navigator.clipboard.writeText(el.dataset.cp);
-    el.classList.add('ok');sfx(1000,.06);setTimeout(()=>sfx(1200,.06),80);
-    setTimeout(()=>el.classList.remove('ok'),1800);
-  });
-});
-
-// submit
-frm.addEventListener('submit',e=>{
-  e.preventDefault();
-  if(!nm.value||!em.value||!ms.value)return;
-  sfx(660,.08);setTimeout(()=>sfx(880,.1),100);
-  tx.classList.add('on');
-  let p=0;const iv=setInterval(()=>{
-    p+=3;txfl.style.width=p+'%';
-    if(p%15===0)sfx(400+p*6,.03);
-    if(p>=100){
-      clearInterval(iv);
-      setTimeout(()=>{
-        tx.classList.add('done');
-        [1000,1200,1400].forEach((f,i)=>setTimeout(()=>sfx(f,.1),i*120));
-        // actually open mailto as fallback
-        const body=encodeURIComponent(`From: ${nm.value}\nEmail: ${em.value}\nType: ${tp.value}\n\n${ms.value}`);
-        setTimeout(()=>{window.location.href=`mailto:singhbrardivshaan@gmail.com?subject=${encodeURIComponent('['+tp.value+'] from '+nm.value)}&body=${body}`},600);
-      },300);
-    }
-  },25);
-});
-
-// hover sfx
-document.querySelectorAll('.side a,.foot a,.send').forEach(b=>b.addEventListener('mouseenter',()=>sfx(680,.03)));
-
-// auto timezone
-try{tz.textContent=Intl.DateTimeFormat().resolvedOptions().timeZone}catch(e){}
-</script></body></html>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script src="script.js"></script>
+</body></html>
