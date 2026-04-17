@@ -15,8 +15,9 @@ Retro pixel-art portfolio website built as a class project for **Graphic Design 
 | Portfolio | `portfolio.html` | Film-strip carousel — 5 featured projects |
 | About | `about.html` | Bio, RPG-style skill bars, timeline, tool inventory |
 | Contact | `contact.html` | Transmission-style message form + socials |
-| Sitemap | `sitemap.html` | Visual tree of all pages |
 | 404 | `404.html` | **Fully playable Space Invaders** (Pixel Invaders) |
+
+> Sitemap is provided as a separate PDF deliverable — not a page on the site.
 
 ## Tech stack
 
@@ -47,7 +48,6 @@ portfolio/
 ├── portfolio.html      · projects (carousel)
 ├── about.html          · bio / skills / timeline
 ├── contact.html        · form + socials
-├── sitemap.html        · visual tree
 ├── 404.html            · Pixel Invaders arcade game
 ├── style.css           · single source of truth for layout + theme
 ├── script.js           · shared JS (audio, clock, per-page behaviors)
