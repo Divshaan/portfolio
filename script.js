@@ -87,27 +87,107 @@ if(frm){
 const stg=document.getElementById('stg');
 if(stg){
   const P=[
-   {n:'01',cat:'BRAND CAMPAIGN',yr:'2025',img:'./images/sap1.jpg',title:'SAPPORO',role:'ART DIRECTION / PRINT',desc:'A bold integrated campaign for Sapporo Premium leaning into its <b>samurai legacy</b>. Visual system, OOH and tone of voice positioning it as the thinking drinker\'s lager.',chips:['Art Direction','Campaign','Print','Copy'],alt:'Sapporo Premium campaign poster — samurai-inspired layout with dramatic typography'},
-   {n:'02',cat:'BRANDING',yr:'2024',img:'./images/Adcamp1-07.jpg',title:'DEPOP',role:'BRANDING / ADVERTISING',desc:'Reimagined Depop\'s youth-first energy into a <b>high-contrast print campaign</b> celebrating Gen-Z resellers.',chips:['Branding','Advertising','Typography'],alt:'Depop print campaign — high-contrast editorial typography over a model portrait'},
-   {n:'03',cat:'INTEGRATED',yr:'2025',img:'./images/rc1.jpg',title:'RED CROSS',role:'INTEGRATED CAMPAIGN',desc:'<b>"Panic is Optional"</b> — emergency-preparedness spanning print, OOH, Reels and direct mail.',chips:['Integrated','OOH','Social','DM'],alt:'Red Cross "Panic is Optional" emergency preparedness campaign poster'},
-   {n:'04',cat:'EDITORIAL',yr:'2024',img:'./images/edim.jpg',title:'GAMESCOM',role:'EDITORIAL / EVENT BRANDING',desc:'An editorial-led identity for Gamescom exploring the <b>intersection of gaming and print</b>.',chips:['Editorial','Event','Pixel'],alt:'Gamescom editorial magazine spread — pixel art meets editorial grids'},
-   {n:'05',cat:'WEB DESIGN',yr:'2025',img:'./images/webm.jpg',title:'BERKSHIRE',role:'WEB REDESIGN / HTML-CSS',desc:'Full-scale redesign concept for Berkshire Hathaway — bringing a storied site into a <b>modern, accessible design system</b>.',chips:['Web','UX','HTML/CSS'],alt:'Berkshire Hathaway website redesign mockup shown on a desktop browser'}
+   {n:'01',cat:'BRAND CAMPAIGN',yr:'2025',title:'SAPPORO',role:'ART DIRECTION / PRINT',
+    imgs:['sap1.jpg','sap2.jpg','sap3.jpg','sap4.jpg','sap5.jpg','sap6.jpg','spa7.jpg','spa8.jpg','spa9.jpg'],
+    desc:'A bold integrated campaign for Sapporo Premium leaning into its <b>samurai legacy</b>. Visual system, OOH and tone of voice positioning it as the thinking drinker\'s lager.',
+    story:'Sapporo needed to re-center its samurai heritage without leaning on a dated gimmick. I built a <b>disciplined visual system</b> — single-stroke sumi brush marks, a restrained palette of ink black, paper white and Sapporo red, and a type voice that mixes Western editorial with Japanese vertical cadence. The campaign runs across print, OOH and digital, always framing the drinker as the patient, thinking warrior.',
+    chips:['Art Direction','Campaign','Print','Copy']},
+   {n:'02',cat:'BRANDING',yr:'2024',title:'DEPOP',role:'BRANDING / ADVERTISING',
+    imgs:['Adcamp1-07.jpg','Adcamp1-01.jpg','Adcamp1-02.jpg','Adcamp1-03.jpg','Adcamp1-04.jpg','Adcamp1-05.jpg','Adcamp1-06.jpg'],
+    desc:'Reimagined Depop\'s youth-first energy into a <b>high-contrast print campaign</b> celebrating Gen-Z resellers.',
+    story:'Depop\'s existing comms felt indistinguishable from every other Gen-Z marketplace. I leaned the opposite way — <b>editorial posters</b> that treat individual sellers like magazine cover stars. Layouts borrow from 90s fashion rags: big, loud serif heads; wide margins; collage overlays; warm film grain. The goal: make resellers feel seen, not just sold to.',
+    chips:['Branding','Advertising','Typography']},
+   {n:'03',cat:'INTEGRATED',yr:'2025',title:'RED CROSS',role:'INTEGRATED CAMPAIGN',
+    imgs:['rc1.jpg','rc2.jpg','rc3.jpg','rc4.jpg'],
+    desc:'<b>"Panic is Optional"</b> — emergency-preparedness spanning print, OOH, Reels and direct mail.',
+    story:'Most emergency-prep comms scream at you. <b>"Panic is Optional"</b> takes the opposite posture — a calm, typographic voice that assumes the reader is an adult. Soft serif headlines, generous whitespace, a single red accent. The campaign scales from a mailed preparedness booklet down to 9:16 reels, with each touchpoint making one small, doable ask.',
+    chips:['Integrated','OOH','Social','DM']},
+   {n:'04',cat:'EDITORIAL',yr:'2024',title:'GAMESCOM',role:'EDITORIAL / EVENT BRANDING',
+    imgs:['edim.jpg','edi1-01.jpg','edi1-02.jpg','edi1-03.jpg','edi1-04.jpg','edi1-05.jpg','edi1-06.jpg'],
+    desc:'An editorial-led identity for Gamescom exploring the <b>intersection of gaming and print</b>.',
+    story:'Gamescom\'s print footprint was an afterthought. I treated it like a magazine instead — <b>pixel grids as editorial grids</b>, 8-bit glyphs as decorative caps, and CMYK-overprint as a nod to arcade misregistration. Covers, features and booth signage all speak the same language: gaming culture viewed through a designer\'s eye.',
+    chips:['Editorial','Event','Pixel']},
+   {n:'05',cat:'WEB DESIGN',yr:'2025',title:'BERKSHIRE',role:'WEB REDESIGN / HTML-CSS',
+    imgs:['webm.jpg','web1.jpg','webm2.jpg'],
+    site:'https://divshaan.github.io/BERKSHIRE-HATHAWAY-Sample/',
+    desc:'Full-scale redesign concept for Berkshire Hathaway — bringing a storied site into a <b>modern, accessible design system</b>. <i>Live demo shown on the right.</i>',
+    story:'<b>berkshirehathaway.com</b> is legendary for being stuck in 1997. I wrote a redesign that keeps its famously restrained tone but applies a modern system: a proper type scale, intentional whitespace, accessible contrast, and a semantic document structure. The visual voice stays dry and serious — but the information is finally reachable. Live demo: <b>divshaan.github.io/BERKSHIRE-HATHAWAY-Sample</b>.',
+    chips:['Web','UX','HTML/CSS']}
   ];
   const strip=document.getElementById('strip'),dts=document.getElementById('dts'),trk=document.getElementById('trk'),pv=document.getElementById('pv'),nx=document.getElementById('nx'),cn=document.getElementById('cn'),tt=document.getElementById('tt');
-  P.forEach(p=>{const s=document.createElement('div');s.className='slide';s.innerHTML=`<div class="num">FRAME <b>${p.n}</b> / 05</div><div class="pimg"><span class="tag">${p.cat}</span><img src="${p.img}" alt="${p.alt||p.title}" loading="lazy"></div><div class="pinfo"><div class="y">&gt; ${p.yr} // ${p.cat}</div><h2>${p.title}</h2><div class="role">${p.role}</div><p>${p.desc}</p><div class="chips">${p.chips.map(c=>`<span class="chip">${c}</span>`).join('')}</div><button class="btn yl" data-case="${p.n}" type="button">► VIEW CASE STUDY</button></div>`;strip.appendChild(s)});
+  P.forEach(p=>{
+    const s=document.createElement('div');s.className='slide';
+    const media=p.site
+      ? `<div class="pimg live"><span class="tag">${p.cat}</span><div class="livelabel">● LIVE PREVIEW</div><iframe src="${p.site}" title="${p.title} — live site preview" loading="lazy" referrerpolicy="no-referrer" sandbox="allow-scripts allow-same-origin allow-popups"></iframe><a class="iframe-shield" href="${p.site}" target="_blank" rel="noopener" aria-label="Open ${p.title} site in a new tab"></a></div>`
+      : `<div class="pimg"><span class="tag">${p.cat}</span>${p.imgs.map((src,i)=>`<img src="./images/${src}" alt="${p.title} ${i+1} of ${p.imgs.length}" loading="lazy"${i===0?' class="on"':''}>`).join('')}<span class="imgcnt">01 / ${String(p.imgs.length).padStart(2,'0')}</span></div>`;
+    const cta=p.site
+      ? `<a class="btn yl" href="${p.site}" target="_blank" rel="noopener" data-site="${p.n}">► OPEN LIVE SITE <i class="bi bi-box-arrow-up-right"></i></a>`
+      : `<button class="btn yl" data-case="${p.n}" type="button">► VIEW CASE STUDY</button>`;
+    s.innerHTML=`<div class="num">FRAME <b>${p.n}</b> / 05</div>${media}<div class="pinfo"><div class="y">&gt; ${p.yr} // ${p.cat}</div><h2>${p.title}</h2><div class="role">${p.role}</div><p>${p.desc}</p><div class="chips">${p.chips.map(c=>`<span class="chip">${c}</span>`).join('')}</div>${cta}</div>`;
+    strip.appendChild(s);
+  });
   P.forEach((_,i)=>{const d=document.createElement('div');d.className='d2';d.setAttribute('aria-label','Go to slide '+(i+1));d.onclick=()=>go(i);dts.appendChild(d)});
   let idx=0;const slides=document.querySelectorAll('.slide');
   tt.textContent=String(P.length).padStart(2,'0');
-  function go(i){idx=Math.max(0,Math.min(P.length-1,i));const sw=window.innerWidth*.84;const sideW=window.innerWidth>900?180:0;const off=(window.innerWidth-sideW-sw)/2;strip.style.transform=`translateX(${off-idx*sw}px)`;slides.forEach((s,j)=>s.classList.toggle('on',j===idx));document.querySelectorAll('.d2').forEach((d,j)=>d.classList.toggle('on',j===idx));cn.textContent=String(idx+1).padStart(2,'0');trk.style.width=((idx+1)/P.length*100)+'%';pv.disabled=idx===0;nx.disabled=idx===P.length-1;sfx(500+idx*80,.06);setTimeout(()=>sfx(700+idx*80,.04),60)}
+  // Per-slide image cycler
+  const cyclers=[];
+  slides.forEach((s,i)=>{
+    const imgs=s.querySelectorAll('.pimg img');
+    const cnt=s.querySelector('.imgcnt');
+    if(imgs.length>1){
+      let ci=0,iv=null;
+      const tick=()=>{imgs[ci].classList.remove('on');ci=(ci+1)%imgs.length;imgs[ci].classList.add('on');if(cnt)cnt.textContent=String(ci+1).padStart(2,'0')+' / '+String(imgs.length).padStart(2,'0')};
+      cyclers.push({
+        start:()=>{if(iv)return;iv=setInterval(tick,2400)},
+        stop:()=>{if(iv){clearInterval(iv);iv=null}}
+      });
+    }else cyclers.push({start:()=>{},stop:()=>{}});
+  });
+  function go(i){
+    idx=Math.max(0,Math.min(P.length-1,i));
+    const sw=window.innerWidth*.84;
+    const sideW=window.innerWidth>900?180:0;
+    const off=(window.innerWidth-sideW-sw)/2;
+    strip.style.transform=`translateX(${off-idx*sw}px)`;
+    slides.forEach((s,j)=>s.classList.toggle('on',j===idx));
+    document.querySelectorAll('.d2').forEach((d,j)=>d.classList.toggle('on',j===idx));
+    cn.textContent=String(idx+1).padStart(2,'0');
+    trk.style.width=((idx+1)/P.length*100)+'%';
+    pv.disabled=idx===0;nx.disabled=idx===P.length-1;
+    cyclers.forEach((c,j)=>j===idx?c.start():c.stop());
+    sfx(500+idx*80,.06);setTimeout(()=>sfx(700+idx*80,.04),60);
+  }
   pv.onclick=()=>go(idx-1);nx.onclick=()=>go(idx+1);
-  addEventListener('keydown',e=>{if(e.key==='ArrowRight')go(idx+1);if(e.key==='ArrowLeft')go(idx-1)});
+  addEventListener('keydown',e=>{if(cs.classList.contains('on'))return;if(e.key==='ArrowRight')go(idx+1);if(e.key==='ArrowLeft')go(idx-1)});
   let wt=0;stg.addEventListener('wheel',e=>{if(!stg.contains(e.target))return;e.preventDefault();if(Date.now()-wt<900)return;wt=Date.now();go(idx+(e.deltaY>0||e.deltaX>0?1:-1))},{passive:false});
-  let sx=0,dg=false;stg.addEventListener('mousedown',e=>{dg=true;sx=e.clientX;stg.classList.add('drag')});addEventListener('mouseup',e=>{if(!dg)return;dg=false;stg.classList.remove('drag');const d=e.clientX-sx;if(Math.abs(d)>80)go(idx+(d<0?1:-1))});
+  let sx=0,dg=false;stg.addEventListener('mousedown',e=>{if(e.target.closest('iframe,.iframe-shield'))return;dg=true;sx=e.clientX;stg.classList.add('drag')});
+  addEventListener('mouseup',e=>{if(!dg)return;dg=false;stg.classList.remove('drag');const d=e.clientX-sx;if(Math.abs(d)>80)go(idx+(d<0?1:-1))});
   stg.addEventListener('touchstart',e=>{sx=e.touches[0].clientX},{passive:true});
   stg.addEventListener('touchend',e=>{const d=e.changedTouches[0].clientX-sx;if(Math.abs(d)>60)go(idx+(d<0?1:-1))});
   addEventListener('resize',()=>go(idx));
-  // Case study stub (wired, not dead)
-  strip.addEventListener('click',e=>{if(e.target.dataset.case){sfx(880,.08);alert('Case study for FRAME '+e.target.dataset.case+' — coming soon.')}});
+
+  // Case study modal
+  const cs=document.getElementById('cs');
+  const csBody=document.getElementById('csBody');
+  const csClose=document.getElementById('csClose');
+  function openCase(n){
+    const p=P.find(x=>x.n===n);if(!p)return;
+    csBody.innerHTML=`<div class="cs-head"><div class="cs-meta">&gt; FRAME ${p.n} // ${p.cat} // ${p.yr}</div><h2>${p.title}</h2><div class="cs-role">${p.role}</div></div><div class="cs-story"><p>${p.story||p.desc}</p><div class="chips">${p.chips.map(c=>`<span class="chip">${c}</span>`).join('')}</div></div><div class="cs-gallery">${p.imgs.map((src,i)=>`<figure><img src="./images/${src}" alt="${p.title} image ${i+1}" loading="lazy"><figcaption>IMG_${String(i+1).padStart(2,'0')}.JPG</figcaption></figure>`).join('')}</div>`;
+    cs.classList.add('on');document.body.classList.add('lockcs');
+    sfx(660,.08);setTimeout(()=>sfx(880,.1),100);
+    csBody.scrollTop=0;
+  }
+  function closeCase(){cs.classList.remove('on');document.body.classList.remove('lockcs');sfx(440,.06)}
+  strip.addEventListener('click',e=>{
+    const t=e.target.closest('[data-case]');
+    if(t){e.preventDefault();sfx(880,.08);openCase(t.dataset.case)}
+    const s=e.target.closest('[data-site]');
+    if(s){sfx(1000,.08)}
+  });
+  csClose.addEventListener('click',closeCase);
+  cs.addEventListener('click',e=>{if(e.target===cs)closeCase()});
+  addEventListener('keydown',e=>{if(e.key==='Escape'&&cs.classList.contains('on'))closeCase()});
+
   setTimeout(()=>go(0),250);
   document.body.classList.add('lock');
 }
