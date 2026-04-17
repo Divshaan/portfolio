@@ -192,33 +192,18 @@ if(stg){
   document.body.classList.add('lock');
 }
 
-// ========== V2: PET + EASTER EGGS (home only) ==========
-if(document.getElementById('pet')){
-  const pet=document.getElementById('pet');
-  const sp=pet.querySelector('.speech');
-  let idleTimer,sleeping=false;
-  const say=(t,ms=2500)=>{sp.textContent=t;pet.classList.add('talk');clearTimeout(pet._st);pet._st=setTimeout(()=>pet.classList.remove('talk'),ms)};
-  const wake=()=>{if(sleeping){sleeping=false;pet.style.filter='';say('...huh? oh hi');sfx(660,.08)}};
-  const idle=()=>{clearTimeout(idleTimer);idleTimer=setTimeout(()=>{sleeping=true;pet.style.filter='grayscale(.5) brightness(.6)';say('zzz...',9999)},60000)};
-  addEventListener('mousemove',e=>{wake();idle();if(Math.random()<.02){const dx=e.clientX-pet.offsetLeft-24,dy=e.clientY-pet.offsetTop-24;pet.style.transform=`translate(${Math.max(-20,Math.min(20,dx*.03))}px,${Math.max(-20,Math.min(20,dy*.03))}px)`}});
-  pet.addEventListener('click',()=>{wake();sfx(880,.06);const msgs=['hire me!','press start 2p <3','type "snake"','~ boop ~','try konami','i\'m DSB\'s pet'];say(msgs[Math.floor(Math.random()*msgs.length)]);pet.classList.add('walk');setTimeout(()=>pet.classList.remove('walk'),900)});
-  setTimeout(()=>say('click me!'),3000);
-  idle();
-
-  // Extended terminal commands
+// ========== V2: TERMINAL EASTER EGGS (home only) ==========
+if(document.getElementById('cmd')){
   const cmd=document.getElementById('cmd'),out=document.getElementById('out');
-  if(cmd){
-    const extra={
-      'sudo hire me':()=>{say('YES PLEASE',4000);document.body.style.animation='shake .4s 3';return'→ application submitted to dsb@reality.exe'},
-      'matrix':()=>{const o=document.createElement('div');o.style.cssText='position:fixed;inset:0;background:rgba(0,0,0,.9);color:#0f0;font-family:monospace;font-size:14px;z-index:9000;padding:20px;overflow:hidden;cursor:pointer';o.textContent=Array(400).fill('01').join(' ');o.onclick=()=>o.remove();document.body.appendChild(o);return'→ wake up, divshaan...'},
-      'theme pink':()=>{document.documentElement.style.setProperty('--cy','#ff77cc');document.documentElement.style.setProperty('--yl','#ffccee');return'→ theme: rose quartz'},
-      'theme default':()=>{document.documentElement.style.setProperty('--cy','#8aceff');document.documentElement.style.setProperty('--yl','#ffdd74');return'→ theme: default'},
-      'snake':()=>'→ jk, play at https://playsnake.org',
-      'coffee':()=>{say('same',3000);return'→ brewing... ☕'},
-      'ls -la':()=>'drwxr-xr-x  dreams  ambition  caffeine  pixels'
-    };
-    cmd.addEventListener('keydown',e=>{if(e.key==='Enter'){const v=cmd.value.trim().toLowerCase();if(extra[v]){out.textContent=extra[v]();sfx(700,.04);cmd.value='';e.stopImmediatePropagation()}}},true);
-  }
-  // Shake keyframe
+  const extra={
+    'sudo hire me':()=>{document.body.style.animation='shake .4s 3';return'→ application submitted to dsb@reality.exe'},
+    'matrix':()=>{const o=document.createElement('div');o.style.cssText='position:fixed;inset:0;background:rgba(0,0,0,.9);color:#0f0;font-family:monospace;font-size:14px;z-index:9000;padding:20px;overflow:hidden;cursor:pointer';o.textContent=Array(400).fill('01').join(' ');o.onclick=()=>o.remove();document.body.appendChild(o);return'→ wake up, divshaan...'},
+    'theme pink':()=>{document.documentElement.style.setProperty('--cy','#ff77cc');document.documentElement.style.setProperty('--yl','#ffccee');return'→ theme: rose quartz'},
+    'theme default':()=>{document.documentElement.style.setProperty('--cy','#8aceff');document.documentElement.style.setProperty('--yl','#ffdd74');return'→ theme: default'},
+    'snake':()=>'→ jk, play at https://playsnake.org',
+    'coffee':()=>'→ brewing... ☕',
+    'ls -la':()=>'drwxr-xr-x  dreams  ambition  caffeine  pixels'
+  };
+  cmd.addEventListener('keydown',e=>{if(e.key==='Enter'){const v=cmd.value.trim().toLowerCase();if(extra[v]){out.textContent=extra[v]();sfx(700,.04);cmd.value='';e.stopImmediatePropagation()}}},true);
   const sh=document.createElement('style');sh.textContent='@keyframes shake{25%{transform:translateX(-4px)}75%{transform:translateX(4px)}}';document.head.appendChild(sh);
 }
