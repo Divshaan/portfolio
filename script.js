@@ -88,26 +88,31 @@ const stg=document.getElementById('stg');
 if(stg){
   const P=[
    {n:'01',cat:'BRAND CAMPAIGN',yr:'2025',title:'SAPPORO',role:'ART DIRECTION / PRINT',
+    folder:'sapporo',
     imgs:['sap1.jpg','sap2.jpg','sap3.jpg','sap4.jpg','sap5.jpg','sap6.jpg','spa7.jpg','spa8.jpg','spa9.jpg'],
     desc:'A bold integrated campaign for Sapporo Premium leaning into its <b>samurai legacy</b>. Visual system, OOH and tone of voice positioning it as the thinking drinker\'s lager.',
     story:'Sapporo needed to re-center its samurai heritage without leaning on a dated gimmick. I built a <b>disciplined visual system</b> — single-stroke sumi brush marks, a restrained palette of ink black, paper white and Sapporo red, and a type voice that mixes Western editorial with Japanese vertical cadence. The campaign runs across print, OOH and digital, always framing the drinker as the patient, thinking warrior.',
     chips:['Art Direction','Campaign','Print','Copy']},
    {n:'02',cat:'BRANDING',yr:'2024',title:'DEPOP',role:'BRANDING / ADVERTISING',
+    folder:'depop',
     imgs:['Adcamp1-07.jpg','Adcamp1-01.jpg','Adcamp1-02.jpg','Adcamp1-03.jpg','Adcamp1-04.jpg','Adcamp1-05.jpg','Adcamp1-06.jpg'],
     desc:'Reimagined Depop\'s youth-first energy into a <b>high-contrast print campaign</b> celebrating Gen-Z resellers.',
     story:'Depop\'s existing comms felt indistinguishable from every other Gen-Z marketplace. I leaned the opposite way — <b>editorial posters</b> that treat individual sellers like magazine cover stars. Layouts borrow from 90s fashion rags: big, loud serif heads; wide margins; collage overlays; warm film grain. The goal: make resellers feel seen, not just sold to.',
     chips:['Branding','Advertising','Typography']},
    {n:'03',cat:'INTEGRATED',yr:'2025',title:'RED CROSS',role:'INTEGRATED CAMPAIGN',
+    folder:'redcross',
     imgs:['rc1.jpg','rc2.jpg','rc3.jpg','rc4.jpg'],
     desc:'<b>"Panic is Optional"</b> — emergency-preparedness spanning print, OOH, Reels and direct mail.',
     story:'Most emergency-prep comms scream at you. <b>"Panic is Optional"</b> takes the opposite posture — a calm, typographic voice that assumes the reader is an adult. Soft serif headlines, generous whitespace, a single red accent. The campaign scales from a mailed preparedness booklet down to 9:16 reels, with each touchpoint making one small, doable ask.',
     chips:['Integrated','OOH','Social','DM']},
    {n:'04',cat:'EDITORIAL',yr:'2024',title:'GAMESCOM',role:'EDITORIAL / EVENT BRANDING',
+    folder:'gamescom',
     imgs:['edim.jpg','edi1-01.jpg','edi1-02.jpg','edi1-03.jpg','edi1-04.jpg','edi1-05.jpg','edi1-06.jpg'],
     desc:'An editorial-led identity for Gamescom exploring the <b>intersection of gaming and print</b>.',
     story:'Gamescom\'s print footprint was an afterthought. I treated it like a magazine instead — <b>pixel grids as editorial grids</b>, 8-bit glyphs as decorative caps, and CMYK-overprint as a nod to arcade misregistration. Covers, features and booth signage all speak the same language: gaming culture viewed through a designer\'s eye.',
     chips:['Editorial','Event','Pixel']},
    {n:'05',cat:'WEB DESIGN',yr:'2025',title:'BERKSHIRE',role:'WEB REDESIGN / HTML-CSS',
+    folder:'berkshire',
     imgs:['webm.jpg','web1.jpg','webm2.jpg'],
     site:'https://divshaan.github.io/BERKSHIRE-HATHAWAY-Sample/',
     desc:'Full-scale redesign concept for Berkshire Hathaway — bringing a storied site into a <b>modern, accessible design system</b>. <i>Live demo shown on the right.</i>',
@@ -119,7 +124,7 @@ if(stg){
     const s=document.createElement('div');s.className='slide';
     const media=p.site
       ? `<div class="pimg live"><span class="tag">${p.cat}</span><div class="livelabel">● LIVE PREVIEW</div><iframe src="${p.site}" title="${p.title} — live site preview" loading="lazy" referrerpolicy="no-referrer" sandbox="allow-scripts allow-same-origin allow-popups"></iframe><a class="iframe-shield" href="${p.site}" target="_blank" rel="noopener" aria-label="Open ${p.title} site in a new tab"></a></div>`
-      : `<div class="pimg"><span class="tag">${p.cat}</span>${p.imgs.map((src,i)=>`<img src="./images/${src}" alt="${p.title} ${i+1} of ${p.imgs.length}" loading="lazy"${i===0?' class="on"':''}>`).join('')}<span class="imgcnt">01 / ${String(p.imgs.length).padStart(2,'0')}</span></div>`;
+      : `<div class="pimg"><span class="tag">${p.cat}</span>${p.imgs.map((src,i)=>`<img src="./images/${p.folder}/${src}" alt="${p.title} ${i+1} of ${p.imgs.length}" loading="lazy"${i===0?' class="on"':''}>`).join('')}<span class="imgcnt">01 / ${String(p.imgs.length).padStart(2,'0')}</span></div>`;
     const cta=p.site
       ? `<a class="btn yl" href="${p.site}" target="_blank" rel="noopener" data-site="${p.n}">► OPEN LIVE SITE <i class="bi bi-box-arrow-up-right"></i></a>`
       : `<button class="btn yl" data-case="${p.n}" type="button">► VIEW CASE STUDY</button>`;
@@ -172,7 +177,7 @@ if(stg){
   const csClose=document.getElementById('csClose');
   function openCase(n){
     const p=P.find(x=>x.n===n);if(!p)return;
-    csBody.innerHTML=`<div class="cs-head"><div class="cs-meta">&gt; FRAME ${p.n} // ${p.cat} // ${p.yr}</div><h2>${p.title}</h2><div class="cs-role">${p.role}</div></div><div class="cs-story"><p>${p.story||p.desc}</p><div class="chips">${p.chips.map(c=>`<span class="chip">${c}</span>`).join('')}</div></div><div class="cs-gallery">${p.imgs.map((src,i)=>`<figure><img src="./images/${src}" alt="${p.title} image ${i+1}" loading="lazy"><figcaption>IMG_${String(i+1).padStart(2,'0')}.JPG</figcaption></figure>`).join('')}</div>`;
+    csBody.innerHTML=`<div class="cs-head"><div class="cs-meta">&gt; FRAME ${p.n} // ${p.cat} // ${p.yr}</div><h2>${p.title}</h2><div class="cs-role">${p.role}</div></div><div class="cs-story"><p>${p.story||p.desc}</p><div class="chips">${p.chips.map(c=>`<span class="chip">${c}</span>`).join('')}</div></div><div class="cs-gallery">${p.imgs.map((src,i)=>`<figure><img src="./images/${p.folder}/${src}" alt="${p.title} image ${i+1}" loading="lazy"><figcaption>IMG_${String(i+1).padStart(2,'0')}.JPG</figcaption></figure>`).join('')}</div>`;
     cs.classList.add('on');document.body.classList.add('lockcs');
     sfx(660,.08);setTimeout(()=>sfx(880,.1),100);
     csBody.scrollTop=0;
