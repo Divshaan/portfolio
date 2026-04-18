@@ -134,7 +134,7 @@ h1,h2,h3,h4,h5,h6{font-weight:normal;font-size:inherit;line-height:1.2}
 .pimg img.on{opacity:1;z-index:2}
 .slide.on .pimg img{filter:saturate(1.15) contrast(1.08)}
 .pimg::after{content:"";position:absolute;inset:0;background:repeating-linear-gradient(0deg,transparent 0 3px,rgba(138,206,255,.06) 3px 4px);pointer-events:none;z-index:4}
-.tag{position:absolute;top:14px;left:14px;background:var(--bg);color:var(--yl);font-family:'Press Start 2P';font-size:8px;padding:7px 11px;border:2px solid var(--yl);z-index:5;letter-spacing:1px}
+.pimg .tag{position:absolute;top:14px;left:14px;background:var(--bg);color:var(--yl);font-family:'Press Start 2P';font-size:8px;padding:7px 11px;border:2px solid var(--yl);z-index:5;letter-spacing:1px}
 .pinfo{flex:1;max-width:440px;opacity:0;transform:translateX(30px);transition:.7s .2s}
 .slide.on .pinfo{opacity:1;transform:translateX(0)}
 .pinfo .y{font-family:'Press Start 2P';font-size:8px;color:var(--cy);margin-bottom:12px;letter-spacing:2px}
